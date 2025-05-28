@@ -11,14 +11,12 @@ const bugs = computed(() => sortedData.filter(task => task.isBug).length);
 const tasks = computed(() => sortedData.filter(task => !task.isBug).length);
 
 const navigateToAddTask = () => router.push('/add');
-const navigateToEditTask = (id: number) => router.push(`/edit/${id}`);
 
 </script>
 
 <template>
     <TasksList 
       :data="sortedData" 
-      :onEdit="navigateToEditTask" 
       :onRemove="handleRemoveTask"
     />
 
