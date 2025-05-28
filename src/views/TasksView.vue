@@ -5,9 +5,13 @@ import { useCounterStore } from '@/stores/counter';
 import router from '@/router';
 import { computed } from 'vue';
 
-const store = useCounterStore();
-const { sortedData,  handleRemoveTask  } = store;
+//NOTE: оптимизация типов хранилища
+// Когда вы делаете деструктуризацию из useCounterStore(), TypeScript может потерять информацию о типах, особенно если хранилище (store) содержит методы или сложные типы.
+// const { sortedData,  handleRemoveTask  } = useCounterStore();
 
+// Решение: сохранить исходный store в переменной
+const store = useCounterStore(); 
+const { sortedData,  handleRemoveTask  } = store;
 
 
 //NOTE: оптимизация фильтрации массива
