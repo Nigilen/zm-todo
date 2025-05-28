@@ -9,6 +9,9 @@ const store = useCounterStore();
 const { sortedData,  handleRemoveTask  } = store;
 
 
+
+//NOTE: оптимизация фильтрации массива
+
 // Двойная фильтрация массива sortedData
 // Если sortedData большой (например, 1000+ задач), это две лишние операции, хотя можно посчитать за один проход.
 
@@ -22,13 +25,15 @@ const counts = computed(() => {
   let bugs: number = 0;
   let tasks: number = 0;
 
-  for (const task of sortedData) {
+  for (const task of sortedData) { // если используем тернарный оператор - выдаст бесючую ошибку по типам
     if(task.isBug) bugs++ 
     else tasks++;
   }
 
   return { bugs, tasks };
 });
+
+// ----------
 
 
 const navigateToAddTask = () => router.push('/add');
