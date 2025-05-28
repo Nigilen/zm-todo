@@ -1,0 +1,83 @@
+:root {
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F3F5FB;
+  --color-text-primary: #494D60;
+  --color-text-secondary: #D2D2D2;
+  --color-text-tertiary: #9299B8;
+  --color-text-bug: #DF2424;
+  --color-text-bug-soft: #FFB6B6;
+  --color-bg-accent: #21A2F5;
+  --color-border-primary: #CDCDCD;
+  --color-border-input: #E3E6EF;
+  --color-muted: #ADB4D2;
+}
+
+:root {
+  --color-background: var(--vt-c-white);
+  --color-background-soft: var(--vt-c-white-soft);
+  --color-background-mute: var(--vt-c-white-mute);
+
+  --color-border: var(--vt-c-divider-light-2);
+  --color-border-hover: var(--vt-c-divider-light-1);
+
+  --color-heading: var(--vt-c-text-light-1);
+  --color-text: var(--vt-c-text-light-1);
+
+  --section-gap: 160px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--vt-c-black);
+    --color-background-soft: var(--vt-c-black-soft);
+    --color-background-mute: var(--vt-c-black-mute);
+
+    --color-border: var(--vt-c-divider-dark-2);
+    --color-border-hover: var(--vt-c-divider-dark-1);
+
+    --color-heading: var(--vt-c-text-dark-1);
+    --color-text: var(--vt-c-text-dark-2);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat'), url('./fonts/Montserrat-Regular.woff') format('woff'), url('./fonts/Montserrat-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat-Bold'), url('./fonts/Montserrat-Bold.woff') format('woff'), url('./fonts/Montserrat-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  max-width: 396px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.875rem;
+  height: 100%;
+  font-family: 'Montserrat';
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+}
