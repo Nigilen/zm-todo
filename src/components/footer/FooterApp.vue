@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ButtonApp from '../ui-kit/ButtonApp.vue';
-import IconAdd from '../icons/IconAdd.vue';
+import ButtonApp from '@/components/ui-kit/ButtonApp.vue';
+import IconAdd from '@/components/icons/IconAdd.vue';
 
 defineProps<{
   bugs: number;
@@ -10,6 +10,10 @@ defineProps<{
 defineEmits<{
   clickAdd: () => void;
 }>();
+
+// const handleClickAdd = () => {
+//   $emit('clickAdd');
+// };
 
 </script>
 

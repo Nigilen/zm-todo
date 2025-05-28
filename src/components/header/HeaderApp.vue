@@ -5,7 +5,7 @@
 <template>
   <header>
     <a href="#">
-      <img src="../../assets/logo.svg" alt="ZM Logo" width="140" height="72">
+      <img src="@/assets/logo.svg" alt="ZM Logo" width="140" height="72">
     </a>
   </header>
 </template>

@@ -26,22 +26,18 @@ export const useCounterStore = defineStore('counter', () => {
     isBug: false
   });
 
-  const sorting = () => data.sort((a, b) => Number(b.isBug) - Number(a.isBug));
+  const sorting = () => data?.sort((a, b) => Number(b.isBug) - Number(a.isBug));
 
   const sortedData = computed(() => sorting());
 
-  const handleEditTask = (id: number) => {
-    console.log(id);
-    
-  }
 
   const handleRemoveTask = (id: number) => {
-    sortedData.value.splice(data.findIndex(task => task.number === id), 1);
+    sortedData?.value.splice(data?.findIndex(task => task.number === id), 1);
     sorting();
   }
 
   const handleAddTask = (title: string, isBug: boolean) => {
-    data.push({
+    data?.push({
       number: data.length + 1,
       title: title,
       isBug: isBug
@@ -49,14 +45,10 @@ export const useCounterStore = defineStore('counter', () => {
     sorting();
   }
 
-
-
-
   return { 
     data, 
     sorting,
     sortedData, 
-    handleEditTask, 
     handleRemoveTask, 
     handleAddTask,
     newTask

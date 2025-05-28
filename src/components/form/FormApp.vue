@@ -3,7 +3,7 @@ import ButtonApp from '@/components/ui-kit/ButtonApp.vue';
 import { useCounterStore } from '@/stores/counter';
 import router from '@/router';
 import { useRoute } from 'vue-router';
-import IconRemove from '../icons/IconRemove.vue';
+import IconRemove from '@/components/icons/IconRemove.vue';
 
 const { data, handleAddTask, newTask, handleRemoveTask } = useCounterStore();
 const route = useRoute();

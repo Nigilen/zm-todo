@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import ButtonApp from '../ui-kit/ButtonApp.vue';
-import IconEdit from '../icons/IconEdit.vue';
-import IconRemove from '../icons/IconRemove.vue';
+import ButtonApp from '@/components/ui-kit/ButtonApp.vue';
+import IconEdit from '@/components/icons/IconEdit.vue';
+import IconRemove from '@/components/icons/IconRemove.vue';
 
 defineProps<{
   id: number,
@@ -13,6 +13,9 @@ defineEmits<{
   remove: () => void,
 }>();
 
+// const handleRemove = () => {
+//   $emit('remove');
+// };
 
 </script>
 
