@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import TaskItem from './TaskItem.vue';  
 
+
 interface Task {
   number: number;
   title: string;
@@ -8,8 +9,7 @@ interface Task {
 }
 
 defineProps<{
-  data: Task[],
-  onRemove: (number: number) => void
+  data: Task[]
 }>();
 
 </script>
@@ -18,13 +18,11 @@ defineProps<{
   <ul class="tasks-list">
 
     <TaskItem 
-      v-for="(task, id) in data" 
+      v-for="(task) in data" 
       :key="task.number" 
       :title="task.title" 
       :number="task.number" 
       :data-bug="task.isBug"
-      :id="id"
-      @remove="() => onRemove(task.number)"
     />
     
   </ul>

@@ -3,19 +3,16 @@ import ButtonApp from '@/components/ui-kit/ButtonApp.vue';
 import IconEdit from '@/components/icons/IconEdit.vue';
 import IconRemove from '@/components/icons/IconRemove.vue';
 
+import { useCounterStore } from '@/stores/counter';
+
+const store = useCounterStore();
+
+const { removeTask } = store;
+
 defineProps<{
-  id: number,
   number: number,
   title: string
 }>();
-
-defineEmits<{
-  remove: () => void,
-}>();
-
-// const handleRemove = () => {
-//   $emit('remove');
-// };
 
 </script>
 
@@ -24,12 +21,15 @@ defineEmits<{
     <span class="tasks-list__item-id"># {{ number }}</span>
     {{ title }}
     <div class="buttons">
-      <RouterLink :to="{ name: 'edit', params: { id: id } }"  class="button" >
+
+      <RouterLink :to="{ name: 'edit', params: { id: number } }"  class="button" >
         <IconEdit />
       </RouterLink>
-      <ButtonApp type="icon" :onClick="() => $emit('remove')">
+
+      <ButtonApp styleType="icon" size="icon" action="remove" :id="number" @remove="removeTask(number)">
         <template #icon><IconRemove /></template>
       </ButtonApp>
+
     </div>
   </li>
 </template>
@@ -48,7 +48,6 @@ defineEmits<{
   .tasks-list__item:not(:last-child) {
     border-bottom: 1px solid var(--color-border-primary);
   }
-
 
   .tasks-list__item-id {
     opacity: 0.4;

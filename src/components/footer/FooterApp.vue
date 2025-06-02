@@ -1,30 +1,28 @@
 <script setup lang="ts">
 import ButtonApp from '@/components/ui-kit/ButtonApp.vue';
 import IconAdd from '@/components/icons/IconAdd.vue';
+import router from '@/router';
 
 defineProps<{
   bugs: number;
   tasks: number;
 }>();
 
-defineEmits<{
-  clickAdd: () => void;
-}>();
-
-// const handleClickAdd = () => {
-//   $emit('clickAdd');
-// };
+const navigateToAddTask = () => router.push('/add');
 
 </script>
+
 
 <template>
   <footer>
     <p class="informer">Задач: {{ tasks }} / Багов: {{ bugs }}</p>
-    <ButtonApp text="Добавить задачу" type="accent" :onClick="() => $emit('clickAdd')">
+    
+    <ButtonApp text="Добавить задачу" styleType="accent" size="lg" @click="navigateToAddTask" >
       <template #icon>
         <IconAdd />
       </template>
     </ButtonApp>
+    
 
   </footer>
 </template>

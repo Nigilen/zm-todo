@@ -4,19 +4,22 @@ import { onMounted } from 'vue';
 import { useCounterStore } from '@/stores/counter'; 
 import { useRoute } from 'vue-router';
 
-const { data, newTask } = useCounterStore();
+const store = useCounterStore();
 const route = useRoute();
-const id = Number(route.params.id);
+
+const { tasks, newTask } = store;
+
+const id = Number(route.params.id) - 1;
 
 onMounted(() => {
-  newTask.isBug = data[id].isBug;
-  newTask.title = data[id].title;
+  newTask.isBug = tasks[id].isBug;
+  newTask.title = tasks[id].title;
 });
 
 </script>
 
 <template>
   
-  <FormApp type="edit" />
+  <FormApp formType="edit" />
 
 </template>

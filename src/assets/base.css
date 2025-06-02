@@ -10,9 +10,8 @@
   --color-border-primary: #CDCDCD;
   --color-border-input: #E3E6EF;
   --color-muted: #ADB4D2;
-}
+  --transition-duration: 0.3s;
 
-:root {
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);

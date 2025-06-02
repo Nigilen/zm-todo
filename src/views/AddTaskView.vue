@@ -6,6 +6,6 @@ import FormApp from '@/components/form/FormApp.vue';
 
 <template>
 
-  <FormApp type="add" />
+  <FormApp formType="add" />
 
 </template>
