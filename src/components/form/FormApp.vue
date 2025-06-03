@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ButtonApp from '@/components/ui-kit/ButtonApp.vue'
-import { useCounterStore } from '@/stores/counter'
-import router from '@/router'
-import { useRoute } from 'vue-router'
-import IconRemove from '@/components/icons/IconRemove.vue'
+import ButtonApp from '@/components/ui-kit/ButtonApp.vue';
+import { useCounterStore } from '@/stores/counter';
+import router from '@/router';
+import { useRoute } from 'vue-router';
+import IconRemove from '@/components/icons/IconRemove.vue';
 
 const store = useCounterStore();
 const { addTask, newTask, removeTask, saveTask } = store;
@@ -14,20 +14,6 @@ defineProps<{
   formType: 'add' | 'edit'
 }>()
 
-const handleAddAndRedirect = () => {
-  addTask(newTask.title, newTask.isBug)
-  router.push('/')
-}
-
-const handleSaveAndRedirect = (number: number) => {
-  saveTask(number, newTask.title, newTask.isBug);
-  router.push('/')
-}
-
-const removeTaskAndRedirect = (id: number) => {
-  removeTask(id)
-  router.push('/')
-}
 </script>
 
 <template>
@@ -67,7 +53,7 @@ const removeTaskAndRedirect = (id: number) => {
       styleType="icon"
       size="sm"
       action="remove"
-      @remove="removeTaskAndRedirect(id)"
+      @remove="removeTask(id)"
       :id="id"
     >
       <template #icon><IconRemove /></template>
@@ -78,7 +64,7 @@ const removeTaskAndRedirect = (id: number) => {
       v-if="formType === 'add'"
       text="Создать"
       action="add"
-      @add="handleAddAndRedirect"
+      @add="addTask(newTask.title, newTask.isBug)"
       styleType="accent"
       size="md"
     />
@@ -87,7 +73,7 @@ const removeTaskAndRedirect = (id: number) => {
       v-else
       text="Сохранить"
       action="save"
-      @save="handleSaveAndRedirect(id)"
+      @save="saveTask(id, newTask.title, newTask.isBug);"
       styleType="accent"
       size="md"
       :id="id"

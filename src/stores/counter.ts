@@ -1,3 +1,4 @@
+import router from '@/router'
 import { defineStore } from 'pinia'
 import { computed, reactive } from 'vue'
 
@@ -5,12 +6,12 @@ interface Task {
   number: number
   title: string
   isBug: boolean
-}
+};
 
 interface NewTask {
   title: string
   isBug: boolean
-}
+};
 
 export const useCounterStore = defineStore('counter', () => {
   const tasks = reactive<Task[]>([
@@ -64,6 +65,7 @@ export const useCounterStore = defineStore('counter', () => {
       tasks.splice(index, 1);
       updateTaskNumbers();
       sorted();
+      router.push('/')
     };
   };
 
@@ -85,7 +87,7 @@ export const useCounterStore = defineStore('counter', () => {
       title: title.trim(),
       isBug,
     });
-
+    router.push('/');
     resetNewTask();
   };
 
@@ -94,6 +96,7 @@ export const useCounterStore = defineStore('counter', () => {
     if (task) {
       task.title = title;
       task.isBug = isBug;
+      router.push('/');
     }
   };
 

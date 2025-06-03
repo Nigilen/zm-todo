@@ -52,7 +52,6 @@ const handleClick = () => {
     align-items: center;
     border-radius: 4px;
     column-gap: 4px;
-    
     border: none;
     box-shadow: none;
     outline: none;

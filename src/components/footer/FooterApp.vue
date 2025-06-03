@@ -8,28 +8,25 @@ defineProps<{
   tasks: number;
 }>();
 
-const navigateToAddTask = () => router.push('/add');
-
 </script>
 
 
 <template>
-  <footer>
+  <div class="footer">
     <p class="informer">Задач: {{ tasks }} / Багов: {{ bugs }}</p>
     
-    <ButtonApp text="Добавить задачу" styleType="accent" size="lg" @click="navigateToAddTask" >
+    <ButtonApp text="Добавить задачу" styleType="accent" size="lg" @click="() => router.push('/add')" >
       <template #icon>
         <IconAdd />
       </template>
     </ButtonApp>
-    
 
-  </footer>
+  </div>
 </template>
 
 
-<style>
-  footer {
+<style scoped>
+  .footer {
     padding-block: 57px 67px;
     display: flex;
     flex-direction: column;
